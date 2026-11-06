@@ -44,6 +44,24 @@ public abstract class Obat {
     }
 
     /**
+     * Mengubah nama obat.
+     */
+    public void setNama(String nama) {
+        if (nama != null && !nama.trim().isEmpty()) {
+            this.nama = nama;
+        }
+    }
+
+    /**
+     * Mengubah harga obat.
+     */
+    public void setHarga(double harga) {
+        if (harga > 0) {
+            this.harga = harga;
+        }
+    }
+
+    /**
      * Mengembalikan jumlah stok obat.
      */
     public int getStok() {

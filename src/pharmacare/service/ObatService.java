@@ -92,4 +92,35 @@ public class ObatService {
             System.out.println("Tidak ada obat dengan stok menipis.");
         }
     }
+    
+    /**
+     * Memperbarui nama dan harga obat berdasarkan ID.
+     */
+    public boolean perbaruiObat(String id, String nama, double harga) {
+        Obat obat = cariObat(id);
+
+        if (obat == null || nama == null
+                || nama.trim().isEmpty() || harga <= 0) {
+            return false;
+        }
+
+        obat.setNama(nama);
+        obat.setHarga(harga);
+
+        return true;
+    }
+
+    /**
+     * Menghapus obat dari daftar berdasarkan ID.
+     */
+    public boolean hapusObat(String id) {
+        Obat obat = cariObat(id);
+
+        if (obat == null) {
+            return false;
+        }
+
+        daftarObat.remove(obat);
+        return true;
+    }
 }
